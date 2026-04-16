@@ -91,49 +91,7 @@ L’objectif principal est de pratiquer :
 
 ## 📁 Architecture du projet
 
-src/
-│
-├── components/ # Composants UI réutilisables
-│ ├── input/
-│ ├── button/
-│ ├── checkbox/
-│ └── ui/ # composants UI (shadcn / design system)
-│
-├── contexts/ # Context API (state global)
-│ └── userContext.tsx
-│
-├── feeds/ # Modules fonctionnels (features)
-│ │
-│ └── users/ # Feature Users (CRUD utilisateurs)
-│ │
-│ ├── components/ # Composants spécifiques à Users
-│ │ ├── UserList.tsx
-│ │ ├── UserTable.tsx
-│ │ ├── EditUserModal.tsx
-│ │ └── DeleteUserDialog.tsx
-│ │
-│ ├── hooks/ # Hooks personnalisés
-│ │ ├── use-user-edit.hook.ts
-│ │ ├── use-user-delete.hook.ts
-│ │ └── use-users.hook.ts
-│ │
-│ └── services/ # Logique métier / données
-| └── centres-interet.ts
-│
-├── pages/ # Pages de l’application
-│ ├── Home.tsx
-│ ├── UsersPage.tsx
-│ └── NotFound.tsx
-│
-├── lib/ # Helpers / utilitaires
-│ ├── utils.ts
-│
-├── types/ # Types globaux TypeScript
-│ └── types.ts
-│
-└── App.tsx # Point d’entrée principal
-
----
+![Page d'accueil](public/images/architechture-projet.png)
 
 ## ⚙️ Fonctionnement global
 
