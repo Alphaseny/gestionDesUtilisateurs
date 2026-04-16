@@ -87,8 +87,6 @@ L’objectif principal est de pratiquer :
 
 - Framer Motion
 
----
-
 ## 📁 Architecture du projet
 
 ![Page d'accueil](public/images/architechture-projet.png)

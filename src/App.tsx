@@ -1,9 +1,9 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { UserContextProvider } from "./contexts/userContext";
-import { Home } from "./fields/Users/components/home";
-import { Layout } from "./fields/Users/components/layout";
-import { UserAdd } from "./fields/Users/components/userAdd";
-import { UserList } from "./fields/Users/components/userList";
+import { Home } from "./feats/Users/components/home";
+import { Layout } from "./feats/Users/components/layout";
+import { UserAdd } from "./feats/Users/components/userAdd";
+import { UserList } from "./feats/Users/components/userList";
 import { NotFound } from "./pages/notFound";
 export function App() {
   return (
