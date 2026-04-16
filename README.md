@@ -1,73 +1,195 @@
-# React + TypeScript + Vite
+# 👤 Gestion des Utilisateurs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 Description du projet
 
-Currently, two official plugins are available:
+Ce projet est une application web de **gestion des utilisateurs** développée avec React.  
+Il permet d’effectuer des opérations CRUD (Create, Read, Update, Delete) sur une liste d’utilisateurs avec une interface moderne et interactive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+L’objectif principal est de pratiquer :
 
-## React Compiler
+- la gestion d’état global avec Context API
+- la manipulation de formulaires avec React Hook Form
+- la création de composants réutilisables
+- l’optimisation de l’UI/UX avec des composants modernes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Fonctionnalités
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 👥 Gestion des utilisateurs
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Affichage d’une liste d’utilisateurs dans un tableau dynamique
+- Ajout d’un utilisateur (via formulaire dédié)
+- Modification d’un utilisateur via une modal
+- Suppression avec confirmation (AlertDialog)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### ✏️ Edition des utilisateurs
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Ouverture d’une modal de modification
+- Pré-remplissage automatique des données
+- Validation des champs avec React Hook Form
+- Mise à jour en temps réel de la liste
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🗑️ Suppression sécurisée
+
+- Confirmation avant suppression
+- Protection contre les suppressions accidentelles
+
+---
+
+### 🎯 Centres d’intérêt
+
+- Sélection multiple via checkbox
+- Affichage dynamique dans une section déroulante
+- Gestion des intérêts par utilisateur
+
+---
+
+### 🎨 Interface utilisateur
+
+- Design moderne avec composants UI réutilisables
+- Table responsive et propre
+- Dropdown menu pour les actions
+- Modal élégante pour édition et suppression
+- Animations fluides avec Framer Motion
+
+---
+
+## 🧠 Technologies utilisées
+
+### Frontend
+
+- React.js
+- TypeScript
+- Tailwind CSS
+
+### State management
+
+- React Context API
+
+### Formulaires
+
+- React Hook Form
+- Validation avec regex et rules personnalisées
+
+### UI Components
+
+- ShadCN UI (ou composants custom)
+- Dropdown Menu
+- Alert Dialog
+- Table Components
+
+### Animations
+
+- Framer Motion
+
+---
+
+## 📁 Architecture du projet
+
+src/
+│
+├── components/ # Composants UI réutilisables
+│ ├── input/
+│ ├── button/
+│ ├── checkbox/
+│ └── ui/ # composants UI (shadcn / design system)
+│
+├── contexts/ # Context API (state global)
+│ └── userContext.tsx
+│
+├── feeds/ # Modules fonctionnels (features)
+│ │
+│ └── users/ # Feature Users (CRUD utilisateurs)
+│ │
+│ ├── components/ # Composants spécifiques à Users
+│ │ ├── UserList.tsx
+│ │ ├── UserTable.tsx
+│ │ ├── EditUserModal.tsx
+│ │ └── DeleteUserDialog.tsx
+│ │
+│ ├── hooks/ # Hooks personnalisés
+│ │ ├── use-user-edit.hook.ts
+│ │ ├── use-user-delete.hook.ts
+│ │ └── use-users.hook.ts
+│ │
+│ └── services/ # Logique métier / données
+| └── centres-interet.ts
+│
+├── pages/ # Pages de l’application
+│ ├── Home.tsx
+│ ├── UsersPage.tsx
+│ └── NotFound.tsx
+│
+├── lib/ # Helpers / utilitaires
+│ ├── utils.ts
+│
+├── types/ # Types globaux TypeScript
+│ └── types.ts
+│
+└── App.tsx # Point d’entrée principal
+
+---
+
+## ⚙️ Fonctionnement global
+
+1. Les utilisateurs sont stockés dans un **Context global**
+2. La liste est affichée sous forme de tableau
+3. Chaque ligne possède des actions :
+   - Modifier
+   - Supprimer
+4. La modification ouvre une modal avec formulaire pré-rempli
+5. Les changements sont immédiatement reflétés dans la liste
+
+---
+
+## 🧪 Validation des formulaires
+
+- Champs obligatoires : nom, prénom, genre
+- Téléphone optionnel avec validation regex
+- Affichage des erreurs en temps réel
+- Gestion propre des erreurs via React Hook Form
+
+---
+
+## 📸 Aperçu du projet
+
+### 🧾 Page d'accueil
+
+![Page d'accueil](public/images/page-accueil.png)
+
+### 🧾 Page d'ajout d'utilisateur
+
+![Page d'ajout](public/images/page-ajouter-user.png)
+
+### 🧾 Liste des utilisateurs
+
+![Table users](public/images/page-liste-users.png)
+
+### ✏️ Modal de modification
+
+![Modal de modification](public/images/modal-de-modification.png)
+
+### 🗑️ Modal de suppression d'utilisateur
+
+![Modal de suppression](public/images/modal-de-suppression.png)
+
+## 🛠️ Installation
+
+```bash
+# Cloner le projet
+git clone https://github.com/ton-repo.git
+
+# Installer les dépendances
+npm install
+
+# Lancer le projet
+npm run dev
+
+
+
 ```
